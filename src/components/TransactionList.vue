@@ -6,7 +6,7 @@
       :key="t.id"
       :class="t.amount < 0 ? 'minus' : 'plus'"
     >
-      {{ t.text }} <span> ksh {{ t.amount }}</span>
+      {{ t.text }} <span> ksh {{ t.amount.toLocaleString() }}</span>
       <button class="delete-btn">x</button>
     </li>
   </ul>

@@ -1,6 +1,6 @@
 <template>
   <h4>Your Balance</h4>
-  <h1 id="balance">ksh0.00</h1>
+  <h1 id="balance">ksh{{ total.toLocaleString() }}</h1>
 </template>
 
 <script setup>
