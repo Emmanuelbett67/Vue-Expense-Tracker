@@ -1,6 +1,13 @@
-# vue-expense-tracker
+# Vue-expense-tracker
+Keep track of income and expenses. Add and remove items and save to local storage
 
-This template should help get you started developing with Vue 3 in Vite.
+# Project Specifications
+- Create UI for project
+- Display transaction items in DOM
+- Show balance, expense and income totals
+- Add new transation and reflect in total
+- Delete items from DOM
+- Persist to local storage
 
 ## Recommended IDE Setup
 
