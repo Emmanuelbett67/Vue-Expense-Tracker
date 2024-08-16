@@ -24,9 +24,15 @@ const transactions = ref([
   { id: 4, text: "Loan", amount: 1000 },
 ]);
 
+//get total
 const total = computed(() => {
   return transactions.value.reduce((acc, transaction) => {
     return acc + transaction.amount;
   }, 0);
 });
+
+//get income
+
+
+//get expenses
 </script>
