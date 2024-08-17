@@ -7,7 +7,9 @@
       :class="t.amount < 0 ? 'minus' : 'plus'"
     >
       {{ t.text }} <span> ksh {{ t.amount.toLocaleString() }}</span>
-      <button class="delete-btn">x</button>
+      <button @click="deleteTransaction(transactions.id)" class="delete-btn">
+        x
+      </button>
     </li>
   </ul>
 </template>
@@ -19,4 +21,10 @@ const props = defineProps({
     requried: true,
   },
 });
+
+const emit = defineEmits(['transactionDeleted']);
+
+const deleteTransaction = (id) => {
+  emit('transactionDeleted', id);
+};
 </script>
