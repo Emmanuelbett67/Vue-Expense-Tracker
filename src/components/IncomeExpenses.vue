@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+//nb no need to import props with vue 3.3
 const props = defineProps({
   income:{
     type: Number,
