@@ -2,11 +2,11 @@
   <div class="inc-exp-container">
         <div>
           <h4>Income</h4>
-          <p id="money-plus" class="money plus">+ksh{{ income }}</p>
+          <p id="money-plus" class="money plus">+ksh{{ income.toLocaleString() }}</p>
         </div>
         <div>
           <h4>Expense</h4>
-          <p id="money-minus" class="money minus">ksh{{ expenses }}</p>
+          <p id="money-minus" class="money minus">ksh{{ expenses.toLocaleString() }}</p>
         </div>
       </div>
 
