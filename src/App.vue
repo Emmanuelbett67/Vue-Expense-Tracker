@@ -44,7 +44,7 @@ const income = computed(() => {
 //get expenses
 const expenses = computed(() => {
   return transactions.value
-    .filter(() => transactions.amount < 0)
+    .filter((transactions) => transactions.amount < 0)
     .reduce((acc, transactions) => {
       return acc + transactions.amount;
     }, 0)
