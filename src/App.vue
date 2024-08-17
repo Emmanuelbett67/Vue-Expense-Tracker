@@ -14,6 +14,7 @@ import Balance from "./components/Balance.vue";
 import IncomeExpenses from "./components/IncomeExpenses.vue";
 import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
+import { useToast } from "vue-toastification";
 
 import { ref, computed } from "vue";
 
@@ -23,6 +24,8 @@ const transactions = ref([
   { id: 3, text: "Pens", amount: -15 },
   { id: 4, text: "Loan", amount: 1000 },
 ]);
+
+const toast = useToast();
 
 //get total
 const total = computed(() => {
@@ -58,6 +61,8 @@ const handleTransactionSubmitted = (transactionData) => {
     text: transactionData.text,
     amount: transactionData.amount
   });
+
+  toast.success('Transaction Added')
 };
 
 //generateUniqueId
