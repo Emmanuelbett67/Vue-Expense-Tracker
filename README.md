@@ -28,6 +28,8 @@ npm install
 ```sh
 npm run dev
 ```
+### How to deploy a Vue project on Github Pages
+https://emmanuel-bett.medium.com/how-to-deploy-your-vue-vite-project-to-github-pages-7bfd17c02226
 
 ### Compile and Minify for Production
 
