@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #f4f7f6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,88 +17,147 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .container {
   margin: 30px auto;
-  width: 400px;
+  width: 360px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
-  letter-spacing: 1px;
-  margin: 0;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px;
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+}
+
+h2 {
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
 }
 
 h3 {
-  border-bottom: 1px solid #bbb;
-  padding-bottom: 10px;
-  margin: 40px 0 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin: 30px 0 15px;
+  font-size: 20px;
+  color: #555;
 }
 
 h4 {
   margin: 0;
   text-transform: uppercase;
+  color: #777;
+  font-size: 14px;
 }
 
 .inc-exp-container {
   background-color: #fff;
-  box-shadow: var(--box-shadow);
+  box-shadow: none;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #eee;
 }
 
 .inc-exp-container > div {
   flex: 1;
   text-align: center;
+  border-right: 1px solid #eee;
 }
 
-.inc-exp-container > div:first-of-type {
-  border-right: 1px solid #dedede;
+.inc-exp-container > div:last-of-type {
+  border-right: 0;
 }
 
 .money {
-  font-size: 20px;
-  letter-spacing: 1px;
+  font-size: 22px;
+  letter-spacing: 0.5px;
   margin: 5px 0;
+  font-weight: 600;
 }
 
 .money.plus {
-  color: #2ecc71;
+  color: #28a745;
 }
 
 .money.minus {
-  color: #c0392b;
+  color: #dc3545;
 }
 
 label {
   display: inline-block;
-  margin: 10px 0;
+  margin: 8px 0;
+  color: #555;
+  font-size: 15px;
 }
 
 input[type='text'],
 input[type='number'] {
-  border: 1px solid #dedede;
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   display: block;
   font-size: 16px;
   padding: 10px;
   width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  outline: none;
+  border-color: #7f8c8d;
+}
+
+input.error {
+  border-color: #dc3545;
+}
+
+.no-transactions-message {
+  text-align: center;
+  color: #777;
+  margin-top: 30px;
+  font-size: 16px;
 }
 
 .btn {
   cursor: pointer;
-  background-color: #9c88ff;
-  box-shadow: var(--box-shadow);
+  background-color: #7f8c8d;
+  box-shadow: none;
   color: #fff;
   border: 0;
+  border-radius: 4px;
   display: block;
   font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
+  margin: 15px 0 30px;
+  padding: 10px 20px;
   width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #6c7a7b;
+}
+
+.clear-btn {
+  background-color: #e0e0e0;
+  color: #555;
+  margin-top: 20px;
+}
+
+.clear-btn:hover {
+  background-color: #d0d0d0;
 }
 
 .btn:focus,
@@ -109,26 +168,27 @@ input[type='number'] {
 .list {
   list-style-type: none;
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .list li {
   background-color: #fff;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   color: #333;
   display: flex;
   justify-content: space-between;
   position: relative;
-  padding: 10px;
+  padding: 10px 15px;
   margin: 10px 0;
+  border-radius: 4px;
 }
 
 .list li.plus {
-  border-right: 5px solid #2ecc71;
+  border-right: 5px solid #28a745;
 }
 
 .list li.minus {
-  border-right: 5px solid #c0392b;
+  border-right: 5px solid #dc3545;
 }
 
 .delete-btn {
@@ -136,17 +196,197 @@ input[type='number'] {
   background-color: #e74c3c;
   border: 0;
   color: #fff;
-  font-size: 20px;
-  line-height: 20px;
-  padding: 2px 5px;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 6px 10px;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translate(-100%, -50%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .list li:hover .delete-btn {
   opacity: 1;
+  transform: translate(-110%, -50%);
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.list-enter-active {
+  animation: fade-in 0.5s ease-out;
+}
+
+.list-leave-active {
+  animation: fade-out 0.5s ease-in;
+  position: absolute;
+  width: 100%;
+}
+
+.list-move {
+  transition: transform 0.5s ease;
+}
+
+/* Confirmation Dialog Styles */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-dialog {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.confirmation-dialog h3 {
+  border-bottom: none; /* Remove border from heading in dialog */
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 22px;
+}
+
+.confirmation-dialog p {
+  margin-bottom: 30px;
+  color: #666;
+  font-size: 16px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.dialog-actions .btn {
+  width: auto; /* Allow buttons to size based on content */
+  padding: 10px 20px;
+  margin: 0; /* Remove default button margins */
+}
+
+.confirm-btn {
+  background-color: #dc3545; /* Red for destructive action */
+}
+
+.confirm-btn:hover {
+  background-color: #c82333;
+}
+
+.cancel-btn {
+  background-color: #6c7a7b; /* Neutral color for cancel */
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+  .container {
+    max-width: 500px; /* Allow container to expand */
+    padding: 30px; /* More padding for larger screens */
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin: 25px 0;
+  }
+
+  h3 {
+    font-size: 24px;
+    padding-bottom: 12px;
+    margin: 40px 0 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  .money {
+    font-size: 28px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  input[type='text'],
+  input[type='number'] {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+
+  .list li {
+    padding: 12px 20px;
+  }
+
+  .delete-btn {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 8px 12px;
+  }
+
+  .confirmation-dialog {
+    max-width: 500px;
+    padding: 40px;
+  }
+
+  .confirmation-dialog h3 {
+    font-size: 26px;
+  }
+
+  .confirmation-dialog p {
+    font-size: 18px;
+  }
+
+  .dialog-actions .btn {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
 }
